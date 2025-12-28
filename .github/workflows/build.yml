@@ -9,8 +9,8 @@ on:
       - main
   
 env:
-DOCKER_IMAGE: ${{ secrets.DOCKER_USERNAME }}/test
-PYTHON_VERSION: '3.12'
+  DOCKER_IMAGE: ${{ secrets.DOCKER_USERNAME }}/test
+  PYTHON_VERSION: '3.12'
 
 jobs:
   tests:
