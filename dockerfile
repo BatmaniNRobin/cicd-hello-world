@@ -1,18 +1,18 @@
-from python:latest
+FROM python:3.15.0a3-slim
 
-workdir /app
+WORKDIR /app
 
-copy requirements.txt .
+COPY requirements.txt .
 
 
 run pip install --no-cache-dir -r requirements.txt
 
-copy . .
+COPY . .
 
-run useradd -m -u 65532 appuser && chown -R appuser:appuser /app
+RUN useradd -m -u 65532 appuser && chown -R appuser:appuser /app
 
-user appuser
+USER appuser
 
-expose 8000
+EXPOSE 8000
 
-cmd ["python", "app.py"]
+CMD ["python", "app.py"]
